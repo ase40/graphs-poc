@@ -1,0 +1,6 @@
+numpy
+pandas
+matplotlib
+sklearn
+neo4j
+neo4j-driver
