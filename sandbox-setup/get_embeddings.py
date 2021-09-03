@@ -94,8 +94,7 @@ def get_embeddingsDF(embeddings_dict):
     df = pd.DataFrame.from_dict(embeddings_dict, orient='index')
     df.index.name='nodeId'
     df.columns = ['dim_'+str(x) for x in df.columns]
-    print(df.head())
-    return None
+    return df
 
 
 if __name__ == '__main__':
@@ -119,4 +118,4 @@ if __name__ == '__main__':
     clusters = kmeans(embeddings, k=k, clusterProp=clusterProp)
 #     update_clusters(driver, clusters)
     driver.close()
-    get_embeddingsDF(embeddings_dict)
+    get_embeddingsDF(embeddings_dict).to_csv("embeddings.csv", index=True)
